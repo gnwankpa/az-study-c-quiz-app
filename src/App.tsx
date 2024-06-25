@@ -42,7 +42,6 @@ const App: React.FC = () => {
     const savedIndex = localStorage.getItem('currentQuestionIndex');
     const savedAnswers = localStorage.getItem('userAnswers');
 
-    console.log('Retrieved from localStorage:', { savedScore, savedIndex, savedAnswers });
 
     if (savedScore) {
       setScore(parseInt(savedScore, 10));
@@ -61,7 +60,6 @@ const App: React.FC = () => {
       localStorage.setItem('quizScore', score.toString());
       localStorage.setItem('currentQuestionIndex', currentQuestionIndex.toString());
       localStorage.setItem('userAnswers', JSON.stringify(userAnswers));
-      console.log('Saved to localStorage:', { score, currentQuestionIndex, userAnswers });
     }
   }, [score, currentQuestionIndex, userAnswers, loading]);
 
@@ -113,7 +111,6 @@ const App: React.FC = () => {
     localStorage.removeItem('quizScore');
     localStorage.removeItem('currentQuestionIndex');
     localStorage.removeItem('userAnswers');
-    console.log('LocalStorage cleared.');
   };
 
   if (loading) {
