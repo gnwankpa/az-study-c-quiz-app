@@ -1,46 +1,103 @@
-# Getting Started with Create React App
+# Azure Study Test App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Overview
 
-## Available Scripts
+View the demo site here: https://tinyurl.com/49yurvpw
 
-In the project directory, you can run:
+This project is an Azure study test application designed to help users prepare for Azure certifications. The application consists of a front-end React application and a back-end Node.js/Express server with a MongoDB database. It allows users to answer quiz questions, track their scores, and view results.
 
-### `npm start`
+## Technologies Used
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+### Front-End
+- **React**: A JavaScript library for building user interfaces.
+- **Axios**: A promise-based HTTP client for the browser and Node.js.
+- **CSS**: Styling for the application.
+- **TypeScript**: A statically typed superset of JavaScript.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+### Back-End
+- **Node.js**: A JavaScript runtime built on Chrome's V8 JavaScript engine.
+- **Express**: A minimal and flexible Node.js web application framework.
+- **MongoDB**: A NoSQL database for storing quiz questions and user data.
+- **Mongoose**: An ODM (Object Data Modeling) library for MongoDB and Node.js.
+- **PM2**: A production process manager for Node.js applications.
+- **dotenv**: A zero-dependency module that loads environment variables from a .env file.
+- **CORS**: Middleware to enable Cross-Origin Resource Sharing.
 
-### `npm test`
+### Additional Tools
+- **Git**: Version control system.
+- **GitHub**: Code hosting platform for version control and collaboration.
+- **DigitalOcean**: Cloud infrastructure provider for hosting the application.
+- **OpenAI API**: Used for generating quiz questions.
+- **Azure Static Web Apps**: Used for deploying the front-end React application.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Features
 
-### `npm run build`
+- **Quiz Functionality**: Users can answer questions, receive feedback, and see their scores.
+- **Persistence**: User scores and question progress are saved in local storage to persist through page refreshes.
+- **Responsive Design**: Optimized for both desktop and mobile views.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+View the demo site here: https://tinyurl.com/49yurvpw
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Installation and Setup
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Prerequisites
 
-### `npm run eject`
+- Node.js and npm
+- MongoDB
+- PM2
+- DigitalOcean Droplet (or any other server)
+- Questions and Answers Data (please contact me if you need help organizing your QnA Database)
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+### Steps
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+1. **Clone the Repository**
+    ```sh
+    git clone git@github.com:gnwankpa/az-study-test-ts-react-back.git
+    cd az-study-test-ts-react-back
+    ```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+2. **Install Dependencies**
+    ```sh
+    npm install
+    ```
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+3. **Set Up Environment Variables**
+    Create a `.env` file in the root directory with the following content:
+    ```
+    MCS_WP=<your-mongodb-uri>
+    OPEN_AI_KEY=<your-openai-api-key>
+    ```
 
-## Learn More
+4. **Start the Server with PM2**
+    ```sh
+    pm2 start src/index.ts --interpreter ts-node
+    pm2 save
+    pm2 startup
+    ```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+5. **Deploy Front-End**
+    The front-end React application is deployed using Azure Static Web Apps. Follow the Azure documentation to set up and deploy your React application.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+6. **Access the Application**
+    Open your browser and go to `http://<your-domain>:<your-port>`
+
+## Screenshots
+
+### Main Test Page
+![Main Test Page](screenshots/az-quiz-app-test-screen-01.png)
+
+### Quiz Answers and Explanation Page
+![Quiz Page](screenshots/az-quiz-app-test-results-screen-01.png)
+
+### Results Page
+![Results Page](screenshots/az-quiz-app-results-screen-01.png)
+
+## Conclusion
+
+This project demonstrates the integration of various technologies to build a full-stack application. It showcases skills in React, Node.js, Express, MongoDB, and deployment on DigitalOcean and Azure. The app is designed to be scalable, maintainable, and user-friendly, making it a valuable tool for those preparing for Azure certifications.
+
+View the demo site here: https://tinyurl.com/49yurvpw
+
+## Contact
+
+For any inquiries or further information, please contact me at ccnwankpa@gmail.com.
